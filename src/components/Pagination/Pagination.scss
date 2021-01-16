@@ -1,0 +1,35 @@
+@import "sass-rem";
+@import "../../assets/variables";
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  margin: rem(20px) auto rem(40px);
+
+  > button {
+    padding: rem(6px);
+    border: none;
+    background-color: map-get($palette, button);
+    color: map-get($palette, pure);
+    cursor: pointer;
+  }
+
+  button:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+  > button:first-child {
+    border-top-left-radius: rem(5px);
+    border-bottom-left-radius: rem(5px);
+  }
+
+  > button:last-child {
+    border-top-right-radius: rem(5px);
+    border-bottom-right-radius: rem(5px);
+  }
+}

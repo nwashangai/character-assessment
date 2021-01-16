@@ -1,0 +1,126 @@
+@import "sass-rem";
+@import "../../assets/variables";
+
+.character {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: rem(180px);
+  margin-bottom: rem(5px);
+  cursor: pointer;
+  box-shadow: 0 0.1875rem 0.5rem rgba(0, 0, 0, 0.101961);
+
+  &__image {
+    width: rem(220px);
+    height: 100%;
+    border-top-left-radius: rem(5px);
+    border-bottom-left-radius: rem(5px);
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    margin-left: rem(10px);
+  }
+
+  &__head {
+    margin-bottom: rem(12px);
+
+    > h2 {
+      margin-bottom: rem(3px);
+      margin-top: rem(5px);
+    }
+
+    > div > span {
+      font-size: rem(13px);
+      font-weight: normal;
+      color: map-get($palette, secondary);
+    }
+  }
+
+  &__location {
+    > h3 {
+      margin-bottom: rem(3px);
+      margin-top: rem(8px);
+      color: map-get($palette, secondary);
+    }
+
+    > div {
+      font-size: 13px;
+    }
+  }
+}
+
+.alive:before,
+.dead:before,
+.unknown:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: rem(4px);
+  border-top-right-radius: rem(5px);
+  border-bottom-right-radius: rem(5px);
+}
+
+.alive:before {
+  background-color: map-get($palette, success);
+}
+
+.unknown:before {
+  background-color: map-get($palette, secondary);
+}
+
+.dead:before {
+  background-color: map-get($palette, danger);
+}
+
+.character:hover {
+  background-color: map-get($palette, hover-bg);
+}
+
+@media (max-width: $break-point) {
+  .character {
+    flex-direction: column;
+    height: fit-content;
+    max-width: rem(350px);
+    width: 100%;
+    margin: auto;
+    margin-bottom: rem(9px);
+    border-radius: rem(5px);
+    box-sizing: border-box;
+
+    &__image {
+      width: rem(220px);
+      height: 100%;
+      border-top-left-radius: unset;
+      border-bottom-left-radius: unset;
+      margin: rem(5px) auto;
+    }
+
+    &__data {
+      margin-bottom: rem(8px);
+    }
+
+    &__head,
+    &__location {
+      text-align: center;
+    }
+  }
+
+  .alive:before,
+  .dead:before,
+  .unknown:before {
+    content: "";
+    position: absolute;
+    right: unset;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: rem(5px);
+    bottom: 0;
+    width: 100%;
+    height: rem(4px);
+    border-bottom-left-radius: rem(5px);
+    border-bottom-right-radius: rem(5px);
+  }
+}

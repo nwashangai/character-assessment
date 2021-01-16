@@ -1,0 +1,18 @@
+@import "sass-rem";
+@import "../../assets/variables";
+
+.main {
+  width: 100%;
+
+  &__loading {
+    text-align: center;
+    margin: rem(100px) auto;
+    font-style: italic;
+  }
+
+  &__count {
+    margin-bottom: rem(10px);
+    font-weight: bold;
+    color: map-get($palette, secondary);
+  }
+}
